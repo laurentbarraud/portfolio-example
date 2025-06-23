@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A sample HTML document.">
+    <title>My personal website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+        .hamburger span {
+            height: 4px;
+            width: 100%;
+            background: #333;
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            header {
+                position: relative;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navList = document.querySelector('nav ul');
+            if (hamburger && navList) {
+                hamburger.addEventListener('click', function() {
+                    navList.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+
+<header role="banner">
+    <h1>Welcome to My Personal Website</h1>
+    <nav role="navigation">
+        <ul>
+            <li><a href="index.html" tabindex="0">Home</a></li>
+            <li><a href="#about-me" tabindex="1">About Me</a></li>
+            <li><a href="#contact" tabindex="2">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main role="main">
+    <section id="about-me" role="region" aria-labelledby="about-me-heading">
+        <h2 id="about-me-heading">About Me</h2>
+        <p>I'm about 40 years old, male and live in western Switzerland</p>
+    </section>
+    <section id="projects" role="region" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
+        <article role="article">
+            <h3>Project One</h3>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Screenshot of Project One: Laptop with code editor" width="300">
+                <figcaption>Project One Screenshot (Photo by Glenn Carstens-Peters on Unsplash)</figcaption>
+            </figure>
+            <p>This is a brief description of Project One. It showcases my skills in web development and design.</p>
+        </article>
+        <article role="article">
+            <h3>Project Two</h3>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Screenshot of Project Two: JavaScript code on screen" width="300">
+                <figcaption>Project Two Screenshot (Photo by Chris Ried on Unsplash)</figcaption>
+            </figure>
+            <p>This is a brief description of Project Two. It demonstrates my experience with JavaScript and interactive features.</p>
+        </article>
+        <article role="article">
+            <h3>Project Three</h3>
+            <figure>
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Screenshot of Project Three: Person solving problems on a notebook" width="300" style="max-width:100%;height:auto;">
+            <figcaption>Project Three Screenshot (Photo by Firmbee.com on Unsplash)</figcaption>
+            </figure>
+            <p>This is a brief description of Project Three. It highlights my ability to solve complex problems and build robust applications.</p>
+        </article>
+    </section>
+    <section id="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>HTML &amp; CSS</li>
+            <li>JavaScript</li>
+            <li>Responsive Web Design</li>
+            <li>Version Control (Git)</li>
+            <li>Problem Solving</li>
+            <li>Team Collaboration</li>
+            <li>Web Accessibility</li>
+        </ul>
+    </section>
+    <section id="contact" role="region" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Me</h2>
+        <form action="#" method="post">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" aria-label="Send Message">Send Message</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 My Personal Website</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
